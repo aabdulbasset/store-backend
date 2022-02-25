@@ -11,7 +11,6 @@ A simple store backend api with three Simple endpoints
 - Create a new database 
 ```sql
 CREATE DATABASE storedev;
-CREATE DATABASE storetest;
 ```
 
 - Connect to the database
