@@ -85,7 +85,7 @@ POST /users/create
 ## Orders
 __Current Order by user (args: user id)[token required]__
 ```http
-POST /orders/${id}/current
+GET /orders/${id}/current
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -97,7 +97,7 @@ POST /orders/${id}/current
 
 __[OPTIONAL] Completed Orders by user (args: user id)[token required]__
 ```http
-POST /orders/${id}/complete
+GET /orders/${id}/complete
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
