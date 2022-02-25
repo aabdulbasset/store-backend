@@ -140,3 +140,6 @@ GET /orders/${id}/complete
 | order_id | product_id     | 
 | :-------- | :------- | 
 | `foreign key`      | `foreign key` |
+
+## Database schema
+![Schema image](https://i.ibb.co/SdsWN44/draw-SQL-export-2022-02-25-13-20.png)
