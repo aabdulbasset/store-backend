@@ -7,6 +7,6 @@ const router = Router()
 //Setting routes
 router.get('/',validateUserToken, index)
 router.get('/id/:id',checkID,validateUserToken , show)
-router.post('/create', validateAdminToken, create)
+router.post('/create', create)
 
 export default router
