@@ -8,7 +8,7 @@ export type product = {
 
 export class productModel{
     async index():Promise<product[]>{
-        const query = "select * from products"
+        const query = "select name,price,category from products"
         const conn = await client.connect()
         const result =await conn.query(query)
         conn.release()
@@ -16,7 +16,7 @@ export class productModel{
     }
     async show(id:number):Promise<product|null>{
         try{
-            const query = "select * from products where id = ($1)"
+            const query = "select name,price,category from products where id = ($1)"
             const conn = await client.connect()
             const result = await conn.query(query,[id])
             conn.release()
@@ -39,7 +39,7 @@ export class productModel{
         }
     }
     async showCategory(id:number):Promise<product[]>{
-        const query = "select * from products where category = ($1)"
+        const query = "select name,price,category from products where category = ($1)"
         const conn = await client.connect()
         const result = await conn.query(query,[id])
         conn.release()

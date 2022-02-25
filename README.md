@@ -21,7 +21,7 @@ CREATE DATABASE storetest;
 ```
 - Clone the repository
 ```bash
-git clone "this repo"
+git clone https://github.com/aabdulbasset/store-backend.git
 ```
 
 - Run the migrations 
@@ -31,7 +31,7 @@ npx db-migrate up
 
 - Build the project 
 ```bash
-npm tsc
+npm build
 ```
 
 - Start the project
@@ -56,3 +56,9 @@ To run this project, you will need to add the following environment variables to
 ## Ports
 API runs on port `3000` PSQL runs by default on port `5432`
 
+## Token
+use
+```html
+Authorization:Bearer eyJhbGciOiJIUzI1NiJ9.YWRtaW4.C1qTmcDlEw6PHchOjmCluce0gps9kJ1eZ-bfX6LZkeY
+```
+for any actions that require admin

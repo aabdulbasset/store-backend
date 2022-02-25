@@ -2,17 +2,16 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateUserToken = exports.validateAdminToken = void 0;
-var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-var validateAdminToken = function (req, res, next) {
-    var _a;
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const validateAdminToken = (req, res, next) => {
     if (!req.headers.authorization) {
         res.sendStatus(401);
     }
     else {
-        var parsedToken = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1];
-        if (jsonwebtoken_1["default"].verify(parsedToken, process.env.SECRET_FOR_TOKEN) != "admin") {
+        const parsedToken = req.headers.authorization?.split(" ")[1];
+        if (jsonwebtoken_1.default.verify(parsedToken, process.env.SECRET_FOR_TOKEN) != "admin") {
             res.sendStatus(403);
         }
         else {
@@ -21,14 +20,13 @@ var validateAdminToken = function (req, res, next) {
     }
 };
 exports.validateAdminToken = validateAdminToken;
-var validateUserToken = function (req, res, next) {
-    var _a;
+const validateUserToken = (req, res, next) => {
     if (!req.headers.authorization) {
         res.sendStatus(401);
     }
     else {
-        var parsedToken = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1];
-        if (jsonwebtoken_1["default"].verify(parsedToken, process.env.SECRET_FOR_TOKEN)) {
+        const parsedToken = req.headers.authorization?.split(" ")[1];
+        if (jsonwebtoken_1.default.verify(parsedToken, process.env.SECRET_FOR_TOKEN)) {
             next();
         }
         else {

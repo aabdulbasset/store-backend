@@ -28,7 +28,7 @@ POST /products/create
 ```
 | Header | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `Authorization`      | `string` | **Required**. Authorization token |
+| `Authorization`      | `string` | **Required**. ADMIN Authorization token |
 
 _Requests must be made with json type_
 
@@ -55,7 +55,7 @@ GET /users/
 
 | Header | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `Authorization`      | `string` | **Required**. Authorization token |
+| `Authorization`      | `string` | **Required**.Authorization token |
 
 __Show [token required]__
 ```http
@@ -73,7 +73,7 @@ POST /users/create
 
 | Header | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `Authorization`      | `string` | **Required**. Authorization token |
+| `Authorization`      | `string` | **Required**.ADMIN Authorization token |
 
 | Request body | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -93,7 +93,7 @@ POST /orders/${id}/current
 
 | Header | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `Authorization`      | `string` | **Required**. Authorization token |
+| `Authorization`      | `string` | **Required**.ADMIN Authorization token |
 
 __[OPTIONAL] Completed Orders by user (args: user id)[token required]__
 ```http
@@ -105,7 +105,7 @@ POST /orders/${id}/complete
 
 | Header | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `Authorization`      | `string` | **Required**. Authorization token |
+| `Authorization`      | `string` | **Required**.ADMIN Authorization token |
 -----
 ## Data Shapes
 #### Product

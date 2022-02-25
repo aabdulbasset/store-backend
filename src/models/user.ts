@@ -6,9 +6,12 @@ export type user = {
     lastName:string,
     password:string,
 }
-
+type returnUser = {
+    firstname:string,
+    lastname:string
+}
 export class userModel{
-    async index():Promise<user[]>{
+    async index():Promise<returnUser[]>{
         const query = 'select firstName,lastName from users'
         const conn = await client.connect()
         const result = await conn.query(query)
@@ -16,7 +19,7 @@ export class userModel{
         return result.rows
     }
 
-    async show(id:number):Promise<user>{
+    async show(id:number):Promise<returnUser>{
         const query = 'select firstName,lastName from users where id = ($1)'
         const conn = await client.connect()
         const result = await conn.query(query,[id])
