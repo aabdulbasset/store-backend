@@ -7,36 +7,19 @@ A simple store backend api with three Simple endpoints
 ## Deployment
 
 - Download and install [PostgreSql](https://www.postgresql.org/download/)  
-- Launch PSQL  
-- Create a new database 
-```sql
-CREATE DATABASE storedev;
-```
-
-- Connect to the database
-
-```sql
-\c storedev
-```
-- Clone the repository
+- Install required packages
 ```bash
-git clone https://github.com/aabdulbasset/store-backend.git
+yarn
 ```
-
-- Run the migrations 
+- Initialize the project 
 ```bash
-npx db-migrate up
+npm run init
 ```
-
-- Build the project 
-```bash
-npm build
-```
-
 - Start the project
 ```bash
-npm start
+npm run start
 ```
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -50,6 +33,7 @@ To run this project, you will need to add the following environment variables to
 `USER = postgres`  
 `PASSWORD = 123`  
 `PORT= 5432`
+`ENV = dev`
 
 
 ## Ports
@@ -81,4 +65,9 @@ npm run setupdb
 #### To run db-migrate down
 ```bash
 npm run removedb
+```
+
+#### To build the project
+```bash
+npm run build
 ```
