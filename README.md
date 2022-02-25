@@ -62,3 +62,24 @@ use
 Authorization:Bearer eyJhbGciOiJIUzI1NiJ9.YWRtaW4.C1qTmcDlEw6PHchOjmCluce0gps9kJ1eZ-bfX6LZkeY
 ```
 for any actions that require admin
+
+## Scripts
+#### To run jasmine tests
+```bash
+npm run test
+```
+
+#### To run tsc-watch
+```bash
+npm run watch
+```
+
+#### To run db-migrate up
+```bash
+npm run setupdb
+```
+
+#### To run db-migrate down
+```bash
+npm run removedb
+```
