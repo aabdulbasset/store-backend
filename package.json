@@ -7,7 +7,7 @@
       "init": "tsc && db-migrate db:create storedev && db-migrate -e dev up",
       "start" : "node dist/server.js ",
       "watch": "npx tsc-watch src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\" --esModuleInterop ",
-      "test": "tsc && db-migrate db:create storetest && db-migrate -e test up && jasmine && db-migrate db:drop storetest",
+      "test": "set ENV=test && tsc && db-migrate db:create storetest && db-migrate -e test up && jasmine && db-migrate db:drop storetest",
       "build": "tsc",
       "setupdb": "db-migrate up",
       "removedb": "db-migrate reset"

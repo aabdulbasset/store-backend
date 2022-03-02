@@ -13,18 +13,26 @@ type returnUser = {
 export class userModel{
     async index():Promise<returnUser[]>{
         const query = 'select firstName,lastName from users'
-        const conn = await client.connect()
-        const result = await conn.query(query)
-        conn.release()
-        return result.rows
+        try{
+            const conn = await client.connect()
+            const result = await conn.query(query)
+            conn.release()
+            return result.rows
+        }catch(err){
+            throw new Error("'index' model failed")
+        }
     }
 
     async show(id:number):Promise<returnUser>{
         const query = 'select firstName,lastName from users where id = ($1)'
-        const conn = await client.connect()
-        const result = await conn.query(query,[id])
-        conn.release()
-        return result.rows[0]
+        try{
+            const conn = await client.connect()
+            const result = await conn.query(query,[id])
+            conn.release()
+            return result.rows[0]
+        }catch(err){
+            throw new Error('"show" model failed')
+        }
     }
 
     async create(u: user):Promise<number>{

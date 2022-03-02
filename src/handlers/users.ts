@@ -7,11 +7,16 @@ import jwt,{ Secret } from 'jsonwebtoken'
 const userObject = new userModel
 
 export const index = async (__req:express.Request, res:express.Response):Promise<void> => {
-    res.send(await userObject.index())
+    try{res.send(await userObject.index())}
+    catch(err){res.sendStatus(400)}
 } 
 
 export const show = async (req:express.Request, res:express.Response):Promise<void> => {
-    res.send(await userObject.show(Number(req.params.id)))
+    try{
+        res.send(await userObject.show(Number(req.params.id)))
+    }catch(err){
+        res.sendStatus(400)
+    }
 }
 
 export const create = async (req:express.Request, res:express.Response):Promise<void> => {
@@ -21,6 +26,7 @@ export const create = async (req:express.Request, res:express.Response):Promise<
         lastName:req.body.lastname,
         password:pass
     }
+    //errors managed
     if(await userObject.create(u)){
         const token = jwt.sign(u.lastName,process.env.SECRET_FOR_TOKEN as Secret)
         res.setHeader("Authorization",`Bearer ${token}`)

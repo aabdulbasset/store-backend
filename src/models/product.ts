@@ -9,10 +9,14 @@ export type product = {
 export class productModel{
     async index():Promise<product[]>{
         const query = "select name,price,category from products"
-        const conn = await client.connect()
-        const result =await conn.query(query)
-        conn.release()
-        return result.rows
+        try{
+            const conn = await client.connect()
+            const result =await conn.query(query)
+            conn.release()
+            return result.rows
+        }catch(err){
+            throw new Error('"Index" model failed')
+        }
     }
     async show(id:number):Promise<product|null>{
         try{
@@ -40,9 +44,14 @@ export class productModel{
     }
     async showCategory(id:number):Promise<product[]>{
         const query = "select name,price,category from products where category = ($1)"
-        const conn = await client.connect()
-        const result = await conn.query(query,[id])
-        conn.release()
-        return result.rows
+        try{
+            const conn = await client.connect()
+            const result = await conn.query(query,[id])
+            conn.release()
+            return result.rows
+        }
+        catch(err){
+            throw new Error('"Category" model failed')
+        }
     }
 }

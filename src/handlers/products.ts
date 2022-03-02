@@ -4,12 +4,20 @@ import { Request, Response } from 'express'
 const productObj = new productModel
 
 export const index = async (req:Request,res:Response):Promise<void>=>{
-    res.send(await productObj.index())
+    try{
+        res.send(await productObj.index())
+    }catch(err){
+        res.sendStatus(400)
+    }
 }
 
 export const show = async (req:Request, res:Response):Promise<void>=>{
 
-    res.send(await productObj.show(Number(req.params.id)))
+    try{
+        res.send(await productObj.show(Number(req.params.id)))
+    }catch(err){
+        res.sendStatus(400)
+    }
 }
 
 export const create = async (req:Request, res:Response):Promise<void>=>{
@@ -27,5 +35,9 @@ export const create = async (req:Request, res:Response):Promise<void>=>{
 
 export const showCategory = async (req:Request, res:Response):Promise<void>=>{
     
-    res.send(await productObj.showCategory(Number(req.params.id)))
+    try{
+        res.send(await productObj.showCategory(Number(req.params.id)))
+    }catch(err){
+        res.sendStatus(400)
+    }
 }
