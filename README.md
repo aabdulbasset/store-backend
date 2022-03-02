@@ -32,7 +32,7 @@ To run this project, you will need to add the following environment variables to
 `DB_TEST = storetest`  
 `USER = postgres`  
 `PASSWORD = 123`  
-`PORT= 5432`
+`PORT= 5432`  
 `ENV = dev`
 
 
